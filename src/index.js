@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/rootReducer';
+import {BrowserRouter, Route} from 'react-router-dom';
+import LoginPage from "./loginPage.js";
+
+
+import 'animate.css/animate.css'
+
+
+
+const store = createStore(rootReducer);
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  
+        <Provider store={store}>
+          <BrowserRouter>
+          <Route path="/login" component={LoginPage} />
+          <Route path="/dashboard" component={App} />
+
+        
+        </BrowserRouter>
+        
+        </Provider>,
+   
+  
   document.getElementById('root')
 );
 
