@@ -38,7 +38,7 @@ class Welcome extends React.Component {
           loading: true
         })
       e.preventDefault();
-      axios.post('http://127.0.0.1:8000/api/login', {
+      axios.post('http://104.248.90.148:8080/api/login', {
           password: this.state.password,
           email:this.state.email
         })

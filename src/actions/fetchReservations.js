@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getAllReservations = (token) =>{
     return (dispatch) => {
 
-        axios.get('http://127.0.0.1:8000/api/reservations?token=' + token)
+        axios.get('http://104.248.90.148:8080/api/reservations?token=' + token)
             .then(response => {
                     console.log('bla bla');
 

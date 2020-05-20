@@ -47,7 +47,7 @@ componentDidMount(){
   this.props.getAllReservations(this.props.token);
 
 
-  axios.get('http://127.0.0.1:8000/api/getUser?token=' + this.props.token)
+  axios.get('http://104.248.90.148:8080/api/getUser?token=' + this.props.token)
               .then(response => {
                 console.log(response.data);
                 this.props.setUserData(response.data);
@@ -100,7 +100,7 @@ onChange = (value) => {
 
 logOut = () =>{
 
-  axios.get('http://127.0.0.1:8000/api/logout?token=' + this.props.token)
+  axios.get('http://104.248.90.148:8080/api/logout?token=' + this.props.token)
               .then(response => {
                 console.log(response.data);
                

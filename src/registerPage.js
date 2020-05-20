@@ -67,7 +67,7 @@ class RegisterPage extends React.Component {
     submitRegistration=(e)=>{
         
             e.preventDefault();
-            axios.post('http://127.0.0.1:8000/api/register', {
+            axios.post('http://104.248.90.148:8080/api/register', {
                 name: this.state.name,
                 password: this.state.password,
                 email:this.state.email

@@ -28,7 +28,7 @@ class ReservationTable extends React.Component {
       }
 
     deleteReservation = (id)=>{
-      axios.delete('http://127.0.0.1:8000/api/reservations/'+id+'?token=' +this.props.token)
+      axios.delete('http://104.248.90.148:8080/api/reservations/'+id+'?token=' +this.props.token)
         .then(response => {
         
           this.props.getAllReservations(this.props.token);
@@ -47,7 +47,7 @@ class ReservationTable extends React.Component {
 
     deleteAllReservations = () =>{
 
-      axios.post('http://127.0.0.1:8000/api/reservations/deleteAll?token=' +this.props.token)
+      axios.post('http://104.248.90.148:8080/api/reservations/deleteAll?token=' +this.props.token)
       .then(response => {
       
         this.props.getAllReservations(this.props.token);

@@ -167,7 +167,7 @@ class Form extends React.Component {
         
 
 
-        fetch('http://127.0.0.1:8000/api/reservations??token=' + this.props.token, {
+        fetch('http://104.248.90.148:8080/api/reservations??token=' + this.props.token, {
           method: 'POST', 
         
           headers: {
