@@ -67,7 +67,7 @@ class RegisterPage extends React.Component {
     submitRegistration=(e)=>{
         
             e.preventDefault();
-            axios.post('http://104.248.90.148:8080/api/register', {
+            axios.post('https://laravel-react-api.xyz/api/register', {
                 name: this.state.name,
                 password: this.state.password,
                 email:this.state.email

@@ -38,7 +38,7 @@ class Welcome extends React.Component {
           loading: true
         })
       e.preventDefault();
-      axios.post('http://104.248.90.148:8080/api/login', {
+      axios.post('https://laravel-react-api.xyz/api/login', {
           password: this.state.password,
           email:this.state.email
         })
