@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Animate from 'animate.css-react'
 import 'animate.css/animate.css'
 import { connect} from 'react-redux';
+import {getAllReservations} from './actions/fetchReservations';
+
 
 
 
@@ -165,7 +167,7 @@ class Form extends React.Component {
         
 
 
-        fetch('http://127.0.0.1:8000/api/reservations', {
+        fetch('http://127.0.0.1:8000/api/reservations??token=' + this.props.token, {
           method: 'POST', 
         
           headers: {
@@ -216,6 +218,8 @@ class Form extends React.Component {
             }
 
           
+
+          
           }
 
           else{
@@ -225,6 +229,9 @@ class Form extends React.Component {
                 this.props.reservationAddedSlackReset();
   
             }, 4000)
+
+            this.props.getAllReservations(this.props.token);
+
 
           }
          
@@ -327,7 +334,9 @@ const mapStateToProps = (state) =>{
       endDate: state.endDate,
       nights: state.nights,
       betweenDates: state.inBetweenDates,
-      facilities: state.facilities
+      facilities: state.facilities,
+      token: localStorage.getItem('token'),
+
 
     
   }
@@ -338,7 +347,8 @@ const mapDispatchToProps = (dispatch) =>{
   return{
         reservationAddedSlack: () =>{dispatch({type: 'RESERVATION_ADDED_SLACK'})},
         reservationAddedSlackReset: () =>{dispatch({type: 'RESERVATION_ADDED_SLACK_RESET'})},
-        openModal:()=>{dispatch({type: 'OPEN_MODAL'})}
+        openModal:()=>{dispatch({type: 'OPEN_MODAL'})},
+        getAllReservations: (token) =>{dispatch(getAllReservations(token))}
 
   }
 }

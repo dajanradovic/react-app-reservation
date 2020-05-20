@@ -228,7 +228,7 @@ span::before{
 
   border: 2px solid black;
   border-radius: 15px;
-  margin-top: 10%;
+  margin-top: 5%;
   opacity: 1;
   
   
@@ -251,3 +251,393 @@ background-color: rgba(0,0,255,0.5);
 
   background-color: red;
 }
+
+#headerDiv{
+
+  
+  margin-bottom: 0px;
+}
+
+#reservationsHeaderTitle{
+
+  font-family: 'Chicle', cursive;
+  text-align:center;
+
+}
+
+#pictureDiv{
+
+  min-width:1024px;
+
+  height:100vh;
+  background-image: url('welcome1.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-y: hidden;
+  
+  filter: brightness(0.30);
+
+}
+
+#welcomeText{
+  width:300px;
+  position:absolute;
+  font-family: 'Chicle', cursive;
+  color:yellow;
+  font-size:60px;
+  z-index:2000;
+  filter: brightness(1.30);
+  top:50px;
+  left:200px;
+  text-align:center;
+  overflow-y: hidden;
+  
+
+}
+
+.button-group{
+  width:300px;
+  position:absolute;
+  bottom:100px;
+  
+
+  z-index:2000;
+  filter: brightness(1.30);
+ 
+  right:50px;
+  
+ 
+
+}
+
+.buttons{
+width:100%;
+margin-top:25px;
+color:black !important;
+opacity:0.5;
+font-weight:bold;
+
+}
+
+.buttons:hover{
+
+opacity:1;
+}
+
+
+#mySidenav{
+
+  width:600px;
+  height:0px;
+  position:absolute;
+  top:-10px;
+  left: 40%;
+  background-color:black;
+  z-index:20001;
+  opacity:0.7;
+  transition: height 1s;
+  border: 1px solid white;
+  color:white;
+  overflow:hidden;
+  outline-style: solid;
+  outline-color: yellow;
+
+}
+
+#darken{
+  min-width:1024px;
+
+  height:100vh;
+
+
+}
+
+#mySidenav a {
+  
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color:white;
+  
+}
+
+#mySidenav a:hover {
+  color: yellow;
+  cursor:pointer;
+}
+
+label.loginLabel{
+
+  color:white !important;
+}
+
+#garbageIcon:hover{
+
+  color: red;
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 10px;
+  left:50px;
+
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 0px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: row-wrap;
+  justify-content: space-between;
+ 
+
+}
+
+#logOut:hover{
+  color:red;
+
+}
+
+#crtaa{
+  width:70%;
+
+border-bottom: 1px solid black;
+margin-bottom:20px;
+}
+
+@media screen and (max-width: 480px) {
+  #mySidenav{
+    width:400px;
+    position:absolute;
+    font-size:30px;
+     margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity:1;
+    height:300px
+     }
+
+     #loginDivbutton{
+       font-size:12px;
+     }
+
+     .lds-ellipsis div {
+      position: absolute;
+      top: -20px;
+       width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #fff;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    #loginErrorText{
+
+      font-size:12px;
+    }
+
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 30px;
+      height: 10px;
+      left:-5px;
+    
+    }
+     
+
+  #welcomeText{
+    width:300px;
+    position:absolute;
+    font-size:30px;
+     margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+   
+  
+  }
+
+  .button-group{
+    position:absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .react-calendar{
+
+    min-width:400px !important;
+    border: 1px solid black !important;
+    background-color: #b2dfdb !important;
+    left:auto;
+    right:auto;
+    border-radius: 5px !important;
+    position:relative;
+    
+   
+
+    
+  }
+
+  #belowCalendarLabel{
+
+    position:relative;
+    left:25%;
+    right:25%;
+    
+  }
+
+  #crtaa{
+    width:50%;
+  
+  border-bottom: 1px solid black;
+  margin-bottom:20px;
+  }
+
+  .collapsible-body{
+
+    padding-left:20px !important;
+   }
+
+  #collapsibleTable{
+
+    overflow-x:scroll;
+  }
+
+  .forma{
+
+    border-left:0px !important;
+    
+    
+    
+
+  }
+
+  #formDesign{
+      margin-left:auto;
+      margin-right:auto;
+
+  }
+
+  .surrounding{
+
+    width:400px;
+    
+    
+    left: 0;
+    right: 0;
+    
+
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width:480px) {
+
+  #mySidenav{
+    left: 30%;
+    opacity:1;
+     }
+
+     .surrounding{
+      position:relative;
+      width:500px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      
+      
+      left: 0;
+      right: 0;
+      
+    }
+
+    .forma{
+
+      border-left:0px !important;
+     margin-left:22% !important;
+      
+      
+      
+  
+    }
+  
+    #formDesign{
+        margin-left:auto;
+        margin-right:auto;
+  
+    }
+
+   .tabletClass{
+
+    margin-left:17% !important;
+   }
+
+}
+
+

@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 
 
 
-class LoginPage extends React.Component {
+class RegisterPage extends React.Component {
      
     constructor(props){
           super(props);
@@ -23,7 +23,9 @@ class LoginPage extends React.Component {
                 passwordErrorContent:'',
                 nameErrorContent:'',
                 emailErrorContant:'',
-                redirect:false
+                redirect:false,
+                emailError:false,
+                passwordError:false
 
           
 
@@ -134,7 +136,7 @@ class LoginPage extends React.Component {
         <div id="background">
             <div className="row">
               
-                <form id="formDesign" className="col s4 offset-s4 lime accent-2">
+                <form id="formDesign" className="col m4 offset-m4  col s10 offset-s1 lime accent-2">
                 <div className="row">
                 <div className="col s12">
                     <h4 style={{textAlign: "center"}}>Register your profile</h4>
@@ -144,7 +146,7 @@ class LoginPage extends React.Component {
 
                          <div className="input-field col s12">
                          <i className="material-icons prefix">account_circle</i>
-                         <input  id="first_name" name="name" value={this.state.name} type="text" onChange={this.handleFormOnChange} class="validate" />
+                         <input  id="first_name" name="name" value={this.state.name} type="text" onChange={this.handleFormOnChange} className="validate" />
                          <label htmlFor="first_name">First Name</label>
                          {this.state.nameError &&  <span style={{color:"red"}}>{this.state.nameErrorContent}</span>}
 
@@ -154,7 +156,7 @@ class LoginPage extends React.Component {
                     <div className="row">
                          <div className="input-field col s12">
                          <i className="material-icons prefix">lock</i>
-                         <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleFormOnChange} class="validate" />
+                         <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleFormOnChange} className="validate" />
                           <label htmlFor="password">Password</label>
                         {this.state.passwordError &&  <span style={{color:"red"}}>{this.state.passwordErrorContent}</span>}
                      </div>
@@ -203,5 +205,5 @@ const mapDispatchToProps = (dispatch) =>{
   
   
   
-  export default connect(null, mapDispatchToProps)(LoginPage);
+  export default connect(null, mapDispatchToProps)(RegisterPage);
   

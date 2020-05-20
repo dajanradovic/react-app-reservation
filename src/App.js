@@ -12,8 +12,14 @@ import Slack from "./slack.js";
 import AddFacilityModal from "./AddFacilityModal.js"
 import { findRenderedComponentWithType } from 'react-dom/test-utils';
 import M from 'materialize-css/dist/js/materialize.min.js';
-import 'materialize-css/dist/css/materialize.min.css';
-import loadjs from 'loadjs';
+import axios from 'axios';
+import { Redirect } from "react-router-dom";
+import ReservationTable from './reservationTable';
+import {getAllReservations} from './actions/fetchReservations';
+
+
+
+
 
 
 
@@ -23,22 +29,38 @@ class App extends React.Component {
    this.state={
   
     showForm: false
+   
      
     }
 
 }
 
+componentWillUnmount(){
+
+  localStorage.removeItem("token");
+}
 
 
 componentDidMount(){
-  
- 
-      const M = window.M;
-    document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.collapsible');
-  var instances = M.Collapsible.init(elems,{});
+  console.log('u comoponentdidmount sam');
+  M.AutoInit();
+  this.props.getAllReservations(this.props.token);
 
-          });
+
+  axios.get('http://127.0.0.1:8000/api/getUser?token=' + this.props.token)
+              .then(response => {
+                console.log(response.data);
+                this.props.setUserData(response.data);
+
+                     
+
+                
+              })
+              
+              .catch(error => {
+                  console.log(error);
+               
+              });
 
      
 
@@ -76,28 +98,56 @@ onChange = (value) => {
  
 }
 
+logOut = () =>{
+
+  axios.get('http://127.0.0.1:8000/api/logout?token=' + this.props.token)
+              .then(response => {
+                console.log(response.data);
+               
+                this.props.eraseAllData();
+             //   
+
+                this.props.history.push('/');
+                     
+
+                
+              })
+              
+              .catch(error => {
+                  console.log(error);
+               
+              });
+
+
+
+
+}
+
 
 
   render(){
-
-    
+     if(this.stlogout==true) return <Redirect to="/"></Redirect>
+    if(this.props.token=='') return <Redirect to="/register"></Redirect>
 
     return (
     <div>
 
      
-    <div className="container teal lighten-2">
-    <div className="row">
-      <div className="col s12">
-        <h1>Arrange your reservations</h1>
+    <div className="teal lighten-2">
+    <div id="headerDiv" className="row yellow darken-1">
+      <div  className="col s12">
+        <div className="flex-container">
+        <h5>Hi,  {this.props.userDetails.name}</h5><div id="crtaa"></div><h6 id="logOut" onClick={this.logOut} title="log out" style={{cursor:"pointer"}}className="valign-wrapper" >Log-out  <i  className="small material-icons" style={{paddingLeft: "10px"}}>exit_to_app</i></h6>
+        </div>
+        <h1 id="reservationsHeaderTitle">Arrange your reservations</h1>
       </div>
+      
    
     </div>
     </div>
    
     
 
-    {this.props.showSlack && <Slack > </Slack>}
 
     <div className="row">
           <div className="col s12">
@@ -107,15 +157,15 @@ onChange = (value) => {
                                
                                <div className="collapsible-body">
                                      <div className="row">
-                                          <div className="col s8" style={{textAlign: "center"}}>
+                                          <div className="col s8 tabletClass" style={{textAlign: "center"}}>
           
                                                   <Calendar  className="customCalendar" onChange={this.onChange}
                       
                                                      selectRange={true}></Calendar>
-                                                     <span style={{fontSize: "12px"}}>* select start and end reservatin date to select a range</span>
+                                                     <span id="belowCalendarLabel"style={{fontSize: "12px"}}>* select start and end reservatin date to select a range</span>
                                           </div>
                                           
-                                          <div className="col s4 forma" style={{width: "400px", borderLeft:"1px solid black"}}>
+                                          <div className="col m4 s12 forma" style={{width: "400px", borderLeft:"1px solid black"}}>
 
 
                                         
@@ -151,6 +201,23 @@ onChange = (value) => {
                                 </div>
                         </li>
                    </ul>
+                   {this.props.showSlack && <Slack > </Slack>}
+
+
+                   <ul className="collapsible  yellow darken-1">
+                       <li>
+                          <div className="collapsible-header"><i className="material-icons">add</i>View reservation list</div>
+                               
+                               <div className="collapsible-body" id="collapsibleTable" >
+                                 {this.props.reservationsList==''? (<p>no reservations</p>):
+                                 (
+                              <ReservationTable />
+                              )
+                                 }
+                                </div>
+                          </li>
+                    </ul>
+
               
              </div>
           
@@ -177,7 +244,11 @@ const mapStateToProps = (state) =>{
               nights: state.nights,
               betweenDates: state.inBetweenDates,
               showSlack: state.showSlack,
-              openModal: state.openModal
+              openModal: state.openModal,
+              token: localStorage.getItem('token'),
+              userDetails:state.userData,
+              reservationsList: state.reservations
+
 
             
           }
@@ -186,7 +257,11 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
 
           return{
-                setReservationDates: (arrival, leave, numberOfNights, inBetweenDates) =>{dispatch({type: 'SET_RESERVATION_DATES', arrivalDate: arrival, leaveDate: leave, nights: numberOfNights, betweenDates: inBetweenDates})}
+                setReservationDates: (arrival, leave, numberOfNights, inBetweenDates) =>{dispatch({type: 'SET_RESERVATION_DATES', arrivalDate: arrival, leaveDate: leave, nights: numberOfNights, betweenDates: inBetweenDates})},
+                setUserData: (values) =>{dispatch({type: 'SET_USER_DATA', data:values})},
+                getAllReservations: (token) =>{dispatch(getAllReservations(token))},
+                eraseAllData: () =>{dispatch({type: 'RESET_DATA'})},
+
 
           }
 }

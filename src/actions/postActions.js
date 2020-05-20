@@ -62,3 +62,20 @@ export const addToken = (payload) =>{
             payload
         }
     }
+
+export const addUserData = (payload) =>{
+
+        return{
+            type: 'ADD_USER_DATA',
+            payload
+        }
+    }
+
+export const eraseAllData = () =>{
+
+        return{
+            type: 'RESET_DATA',
+           
+        }
+    }
+

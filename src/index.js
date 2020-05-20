@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Welcome from './welcome.js'
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 import {BrowserRouter, Route} from 'react-router-dom';
-import LoginPage from "./loginPage.js";
-
+import RegisterPage from "./registerPage.js";
+import 'materialize-css/dist/css/materialize.min.css'
+import thunk from 'redux-thunk';
 
 import 'animate.css/animate.css'
 
 
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 
 
@@ -22,8 +24,9 @@ ReactDOM.render(
   
         <Provider store={store}>
           <BrowserRouter>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/dashboard" component={App} />
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/dashboard" component={App} />
 
         
         </BrowserRouter>

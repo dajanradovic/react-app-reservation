@@ -6,8 +6,10 @@ const initState={
      reservationAdded: false,
      showSlack:false,
      openModal:false,
-     token:'',
-     facilities: ["Studio", "Apartment 4+0"] 
+     token:localStorage.getItem("token"),
+     facilities: ["Studio", "Apartment 4+0"],
+     userData:{},
+     reservations:[] 
 
 }
 
@@ -83,6 +85,32 @@ const rootReducer = (state = initState, action) =>{
 
           } 
        }
+
+       if (action.type === 'SET_USER_DATA'){
+            console.log(action);
+              
+          return{
+               ...state,
+               userData : ({},  {...action.data})
+
+          } 
+       }
+
+       if (action.type === 'RESERVATION_LIST'){
+          //console.log(action);
+            
+        return{
+             ...state,
+             reservations:[action.reservations]
+
+        } 
+     }
+
+     if (action.type === 'RESET_DATA'){
+          //console.log(action);
+            
+        state=initState;
+     }
 
 
     return state;
