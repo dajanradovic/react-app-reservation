@@ -477,7 +477,7 @@ margin-bottom:20px;
 
 @media screen and (max-width: 480px) {
   #mySidenav{
-    width:400px;
+    width:370px;
     position:absolute;
     
     font-size:30px;
@@ -612,7 +612,7 @@ margin-bottom:20px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
   #mySidenav{
     width:280px;
     position:absolute;
