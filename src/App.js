@@ -102,12 +102,12 @@ logOut = () =>{
 
   axios.get('http://127.0.0.1:8000/api/logout?token=' + this.props.token)
               .then(response => {
-                console.log(response.data);
                
-                this.props.eraseAllData();
-             //   
-
                 this.props.history.push('/');
+
+                this.props.eraseAllData();
+             
+
                      
 
                 
@@ -126,8 +126,8 @@ logOut = () =>{
 
 
   render(){
-     if(this.stlogout==true) return <Redirect to="/"></Redirect>
-    if(this.props.token=='') return <Redirect to="/register"></Redirect>
+    if(localStorage.getItem('token')==null) 
+    {return <Redirect to="/register"></Redirect>}
 
     return (
     <div>
@@ -137,7 +137,7 @@ logOut = () =>{
     <div id="headerDiv" className="row yellow darken-1">
       <div  className="col s12">
         <div className="flex-container">
-        <h5>Hi,  {this.props.userDetails.name}</h5><div id="crtaa"></div><h6 id="logOut" onClick={this.logOut} title="log out" style={{cursor:"pointer"}}className="valign-wrapper" >Log-out  <i  className="small material-icons" style={{paddingLeft: "10px"}}>exit_to_app</i></h6>
+        <h5 id="userName">Hi,  {this.props.userDetails.name}</h5><div id="crtaa"></div><h6 id="logOut" onClick={this.logOut} title="log out" style={{cursor:"pointer"}}className="valign-wrapper" ><i  className="small material-icons" style={{paddingLeft: "10px"}}>exit_to_app</i></h6>
         </div>
         <h1 id="reservationsHeaderTitle">Arrange your reservations</h1>
       </div>
@@ -183,8 +183,8 @@ logOut = () =>{
                                               </Animate>
                                             }
                                           
- 
-                                        
+                                          {this.props.showSlack && <Slack > </Slack>}
+
                                     </div>
                                                    
                                                    
@@ -201,7 +201,6 @@ logOut = () =>{
                                 </div>
                         </li>
                    </ul>
-                   {this.props.showSlack && <Slack > </Slack>}
 
 
                    <ul className="collapsible  yellow darken-1">

@@ -102,9 +102,8 @@ class ReservationTable extends React.Component {
       
       <div className="clearfix">
         
+       <table className="responsive-table">
        
-       
-        <table đclassName="tabel-responsive">
         <thead>
           <tr>
                <th>#</th>

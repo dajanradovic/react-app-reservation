@@ -244,13 +244,16 @@ class Form extends React.Component {
       
 
   render(){
-
-    let dates= this.props.inbeetween.map((item, index) =>{
+    let dates;
+      if (this.props.inbetween !==''){
+    dates = this.props.inbeetween.map((item, index) =>{
       return <li key={index} className="collection-item" style={{backgroundColor: "#b2dfdb"}}> {item.toDateString()} <p>Price for this night: <input class="priceInput right-align listItem" style={{width:"70px", marginLeft:"10px" }} id={item.toDateString()} onBlur={this.calculateTotalPrice}  type="number"  /></p></li>
     });
+  }
    
     return (
-  <div >
+  <div 
+  >
 
                
         <div className="surrounding lime accent-1">
