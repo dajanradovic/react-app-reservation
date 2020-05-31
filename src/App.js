@@ -183,7 +183,6 @@ logOut = () =>{
                                               </Animate>
                                             }
                                           
-                                          {this.props.showSlack && <Slack > </Slack>}
 
                                     </div>
                                                    
@@ -192,12 +191,13 @@ logOut = () =>{
                                               
                                                
 
-                                                             
+        
 
        
                                              </div>
         
-                                      
+                                             {this.props.showSlack && <Slack > </Slack>}
+
                                 </div>
                         </li>
                    </ul>
