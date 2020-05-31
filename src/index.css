@@ -155,7 +155,7 @@ span::before{
   position:absolute;
   transform: translateX(2000px);
   animation-name:example;
-   animation-duration: 4s;
+   animation-duration: 1s;
    z-index: 2000;
    transition-timing-function: linear;
   
@@ -380,6 +380,16 @@ label.loginLabel{
   color: red;
 }
 
+#garbageIconMobile:hover{
+
+  color: red;
+}
+
+#garbageIconMobile{
+
+  display:none;
+}
+
 
 .clearfix::after {
   content: "";
@@ -469,6 +479,7 @@ margin-bottom:20px;
   #mySidenav{
     width:400px;
     position:absolute;
+    
     font-size:30px;
      margin-left: auto;
     margin-right: auto;
@@ -476,7 +487,7 @@ margin-bottom:20px;
     right: 0;
     text-align: center;
     opacity:1;
-    height:300px
+    
      }
 
      #loginDivbutton{
@@ -579,8 +590,13 @@ margin-bottom:20px;
   }
 
   #formDesign{
-      margin-left:auto;
-      margin-right:auto;
+    position:absolute;
+    margin-left: auto;
+    margin-right: auto;
+    width:280px;
+    left: 0;
+    right: 0;
+    text-align: center;
 
   }
 
@@ -594,6 +610,190 @@ margin-bottom:20px;
     
 
   }
+}
+
+@media screen and (max-width: 320px) {
+  #mySidenav{
+    width:280px;
+    position:absolute;
+    
+    font-size:30px;
+     margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity:1;
+    
+     }
+
+     #mySidenav a{
+
+      right:5px !important;
+     }
+
+     #loginDivbutton{
+       font-size:8px;
+       width:80px !important;
+       margin-left:0px !important;
+     }
+
+     .lds-ellipsis div {
+      position: absolute;
+      top: -20px;
+       width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #fff;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    #loginErrorText{
+
+      font-size:12px;
+    }
+
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 30px;
+      height: 10px;
+      left:-5px;
+    
+    }
+     
+
+  #welcomeText{
+    width:280px;
+    position:absolute;
+    font-size:30px;
+     margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+   
+  
+  }
+
+  .button-group{
+    position:absolute;
+    margin-left: auto;
+    margin-right: auto;
+    width:280px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .react-calendar{
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+    
+    left: 0 !important;
+    right: 0 !important;
+    position:relative !important;
+    min-width:240px !important;
+   
+
+    
+  }
+
+  .slack{
+  
+    width:200px;
+    height:70px;
+    background-color: green;
+    border: 2px solid yellow;
+    border-radius: 2px;
+    color: yellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    position:absolute;
+    transform: translateX(2000px);
+    animation-name:example;
+     animation-duration: 2s;
+     z-index: 2000;
+     transition-timing-function: linear;
+    
+  }
+  
+  
+  
+  @keyframes example {
+    from {transform: translateX(800px);}
+    to {transform: translateX(10px);}
+   
+  }
+
+  #belowCalendarLabel{
+
+    position:relative;
+    left:25%;
+    right:25%;
+    
+  }
+
+  #userName{
+
+    font-size:18px;
+  }
+  #crtaa{
+    width:30%;
+  
+  border-bottom: 1px solid black;
+  margin-bottom:20px;
+  }
+
+  .collapsible-body{
+
+    padding-left:20px !important;
+   }
+
+  #collapsibleTable{
+
+    overflow-x:scroll;
+  }
+
+  .forma{
+
+    border-left:0px !important;
+    
+    
+    
+
+  }
+
+  #formDesign{
+    position:absolute;
+    margin-left: auto;
+    margin-right: auto;
+    width:280px;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+  }
+
+  .surrounding{
+
+    
+    
+    left: 0 !important;
+    right: 0 !important;
+    position:relative !important;
+   width:240px !important;
+    
+
+  }
+
+  #garbageIcon{
+
+    display: inline;
+  }
+
+  
 }
 
 @media screen and (max-width: 992px) and (min-width:480px) {

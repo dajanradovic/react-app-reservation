@@ -74,7 +74,8 @@ class RegisterPage extends React.Component {
               })
               .then(response => {
                 console.log(response.data);
-                this.props.addToken(response.data.token);
+                localStorage.setItem("token", response.data.token);
+
                
                this.setState({
 
